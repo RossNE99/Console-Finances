@@ -99,3 +99,18 @@ finances.forEach((finance) => {
   totalPL = totalPL + finance[1]
 })
 console.log("The total ammount of profit/loss for the entire perios is $"+totalPL)
+
+//The average of the changes in Profit/Losses over the entire period.
+var financesWithPL = []
+var totalChnage = 0;
+var avgChnage =0;
+finances.forEach((finance, index,) => {
+  if(index>0){
+    financesWithPL.push([...finance, (finance[1]-finances[index-1][1])])
+  } else financesWithPL.push([...finance, 0]);
+
+  totalChnage = totalChnage + financesWithPL[index][2]
+  avgChnage = ((totalChnage - financesWithPL[0][2])/(totalMonths -1)).toFixed(2)
+})
+//console.log(financesWithPL)
+console.log("Average Chnage: "+avgChnage)
