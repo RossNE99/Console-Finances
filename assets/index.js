@@ -86,3 +86,8 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+
+
+//Total number of months included in the dataset
+var totalMonths = finances.length;
+console.log("There is a total of "+totalMonths+" included in the inputed data.")
