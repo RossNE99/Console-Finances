@@ -91,3 +91,11 @@ var finances = [
 //Total number of months included in the dataset
 var totalMonths = finances.length;
 console.log("There is a total of "+totalMonths+" included in the inputed data.")
+
+
+//The net total amount of Profit/Losses over the entire period.
+var totalPL = 0;
+finances.forEach((finance) => {
+  totalPL = totalPL + finance[1]
+})
+console.log("The total ammount of profit/loss for the entire perios is $"+totalPL)
