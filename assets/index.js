@@ -114,3 +114,13 @@ finances.forEach((finance, index,) => {
 })
 //console.log(financesWithPL)
 console.log("Average Chnage: "+avgChnage)
+
+//The greatest increase in Profit/Losses (date and difference in the amounts) over the entire period.
+// Sort the array based on the third item in each subarray
+financesWithPL.sort((a, b) => b[2] - a[2]);
+console.log("Greatest Increase in Profits/Losses: "+financesWithPL[0][0]+ " ($"+financesWithPL[0][2]+")")
+
+//The greatest decrease in Profit/Losses (date and difference in the amounts) over the entire period.
+// Sort the array based on the third item in each subarray
+financesWithPL.sort((a, b) => a[2] - b[2]);
+console.log("The greatest decrease in Profit/Losses: "+financesWithPL[0][0]+ " ($"+financesWithPL[0][2]+")")
