@@ -87,40 +87,42 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
+console.log(`Financial Analysis\n----------------`);
 
 //Total number of months included in the dataset
 var totalMonths = finances.length;
-console.log("There is a total of "+totalMonths+" included in the inputed data.")
+console.log(`Total Months: ${totalMonths}`);
 
 
 //The net total amount of Profit/Losses over the entire period.
 var totalPL = 0;
 finances.forEach((finance) => {
-  totalPL = totalPL + finance[1]
+  totalPL = totalPL + finance[1];
 })
-console.log("The total ammount of profit/loss for the entire perios is $"+totalPL)
+console.log(`Total profit/loss: $${totalPL}`);
 
 //The average of the changes in Profit/Losses over the entire period.
-var financesWithPL = []
+var financesWithPL = [];
 var totalChnage = 0;
 var avgChnage =0;
 finances.forEach((finance, index,) => {
   if(index>0){
-    financesWithPL.push([...finance, (finance[1]-finances[index-1][1])])
+    financesWithPL.push([...finance, (finance[1]-finances[index-1][1])]);
   } else financesWithPL.push([...finance, 0]);
 
-  totalChnage = totalChnage + financesWithPL[index][2]
-  avgChnage = ((totalChnage - financesWithPL[0][2])/(totalMonths -1)).toFixed(2)
+  totalChnage = totalChnage + financesWithPL[index][2];
+  avgChnage = ((totalChnage - financesWithPL[0][2])/(totalMonths -1)).toFixed(2);
 })
 //console.log(financesWithPL)
-console.log("Average Chnage: "+avgChnage)
+avgChnage>=0 ? console.log(`Average Chnage: $${avgChnage}`) : console.log(`Average Chnage: -$${Math.abs(avgChnage)}`);
 
 //The greatest increase in Profit/Losses (date and difference in the amounts) over the entire period.
 // Sort the array based on the third item in each subarray
 financesWithPL.sort((a, b) => b[2] - a[2]);
-console.log("Greatest Increase in Profits/Losses: "+financesWithPL[0][0]+ " ($"+financesWithPL[0][2]+")")
+console.log(`Greatest Increase in Profits/Losses: ${financesWithPL[0][0]} ($${financesWithPL[0][2]})`);
 
 //The greatest decrease in Profit/Losses (date and difference in the amounts) over the entire period.
 // Sort the array based on the third item in each subarray
 financesWithPL.sort((a, b) => a[2] - b[2]);
-console.log("The greatest decrease in Profit/Losses: "+financesWithPL[0][0]+ " ($"+financesWithPL[0][2]+")")
+financesWithPL[0][2]>=0 ? console.log(`The greatest decrease in Profit/Losses: ${financesWithPL[0][0]} ($${financesWithPL[0][2]})`)
+: console.log(`Greatest Decrease in Profit/Losses: ${financesWithPL[0][0]} (-$${Math.abs(financesWithPL[0][2])})`);
