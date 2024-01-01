@@ -93,15 +93,8 @@ console.log(`Financial Analysis\n----------------`);
 var totalMonths = finances.length;
 console.log(`Total Months: ${totalMonths}`);
 
-
-//The net total amount of Profit/Losses over the entire period.
-var totalPL = 0;
-finances.forEach((finance) => {
-  totalPL = totalPL + finance[1];
-})
-console.log(`Total profit/loss: $${totalPL}`);
-
 //The average of the changes in Profit/Losses over the entire period.
+var totalPL = 0;
 var financesWithPL = [];
 var totalChnage = 0;
 var avgChnage =0;
@@ -110,9 +103,15 @@ finances.forEach((finance, index,) => {
     financesWithPL.push([...finance, (finance[1]-finances[index-1][1])]); //create a clone of finances but add P&l to each finance
   } else financesWithPL.push([...finance, 0]); //set 1st entery as 0
 
+  //count The net total amount of Profit/Losses over the entire period.
+  totalPL = totalPL + finance[1];
+  
   totalChnage = totalChnage + financesWithPL[index][2]; //work out total chnage
   avgChnage = ((totalChnage - financesWithPL[0][2])/(totalMonths -1)).toFixed(2); //work out avg chnage
 })
+
+console.log(`Total profit/loss: $${totalPL}`);
+
 //console.log(financesWithPL)
 avgChnage>=0 ? console.log(`Average Chnage: $${avgChnage}`) : console.log(`Average Chnage: -$${Math.abs(avgChnage)}`);  //if avgChnage is negaive then add a - infront of the doller sign
 
