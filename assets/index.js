@@ -93,12 +93,12 @@ console.log(`Financial Analysis\n----------------`);
 var totalMonths = finances.length;
 console.log(`Total Months: ${totalMonths}`);
 
-//The average of the changes in Profit/Losses over the entire period.
+
 var totalPL = 0;
 var financesWithPL = [];
 var totalChnage = 0;
 var avgChnage =0;
-finances.forEach((finance, index,) => {
+finances.forEach((finance, index,) => { // calculate The average of the changes in Profit/Losses over the entire period. & add up total profit/loss
   if(index>0){ //Skip 1st entery as there will be no previous value to compare too
     financesWithPL.push([...finance, (finance[1]-finances[index-1][1])]); //create a clone of finances but add P&l to each finance
   } else financesWithPL.push([...finance, 0]); //set 1st entery as 0
