@@ -106,15 +106,15 @@ var financesWithPL = [];
 var totalChnage = 0;
 var avgChnage =0;
 finances.forEach((finance, index,) => {
-  if(index>0){
-    financesWithPL.push([...finance, (finance[1]-finances[index-1][1])]);
-  } else financesWithPL.push([...finance, 0]);
+  if(index>0){ //Skip 1st entery as there will be no previous value to compare too
+    financesWithPL.push([...finance, (finance[1]-finances[index-1][1])]); //create a clone of finances but add P&l to each finance
+  } else financesWithPL.push([...finance, 0]); //set 1st entery as 0
 
-  totalChnage = totalChnage + financesWithPL[index][2];
-  avgChnage = ((totalChnage - financesWithPL[0][2])/(totalMonths -1)).toFixed(2);
+  totalChnage = totalChnage + financesWithPL[index][2]; //work out total chnage
+  avgChnage = ((totalChnage - financesWithPL[0][2])/(totalMonths -1)).toFixed(2); //work out avg chnage
 })
 //console.log(financesWithPL)
-avgChnage>=0 ? console.log(`Average Chnage: $${avgChnage}`) : console.log(`Average Chnage: -$${Math.abs(avgChnage)}`);
+avgChnage>=0 ? console.log(`Average Chnage: $${avgChnage}`) : console.log(`Average Chnage: -$${Math.abs(avgChnage)}`);  //if avgChnage is negaive then add a - infront of the doller sign
 
 //The greatest increase in Profit/Losses (date and difference in the amounts) over the entire period.
 // Sort the array based on the third item in each subarray
@@ -125,4 +125,4 @@ console.log(`Greatest Increase in Profits/Losses: ${financesWithPL[0][0]} ($${fi
 // Sort the array based on the third item in each subarray
 financesWithPL.sort((a, b) => a[2] - b[2]);
 financesWithPL[0][2]>=0 ? console.log(`The greatest decrease in Profit/Losses: ${financesWithPL[0][0]} ($${financesWithPL[0][2]})`)
-: console.log(`Greatest Decrease in Profit/Losses: ${financesWithPL[0][0]} (-$${Math.abs(financesWithPL[0][2])})`);
+: console.log(`Greatest Decrease in Profit/Losses: ${financesWithPL[0][0]} (-$${Math.abs(financesWithPL[0][2])})`);  //if entery is negaive then add a - infront of the doller sign
