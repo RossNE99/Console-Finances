@@ -112,7 +112,6 @@ finances.forEach((finance, index,) => { // calculate The average of the changes 
 
 console.log(`Total profit/loss: $${totalPL}`);
 
-//console.log(financesWithPL)
 avgChnage>=0 ? console.log(`Average Chnage: $${avgChnage}`) : console.log(`Average Chnage: -$${Math.abs(avgChnage)}`);  //if avgChnage is negaive then add a - infront of the doller sign
 
 //The greatest increase in Profit/Losses (date and difference in the amounts) over the entire period.
