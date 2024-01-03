@@ -1,4 +1,4 @@
-# Console-Finances 📈💵
+# Financial-Analysis-App 📈💵
 
 ## Description
 This repository contains the code for my Console Finances web app. The goal of this project revolves around handling a pre-existing dataset and performing essential calculations, with the results neatly displayed in the console.
