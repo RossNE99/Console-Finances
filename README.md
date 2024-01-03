@@ -40,7 +40,7 @@ To get the development environment running:
 - `assets/images/`: Contains all images used in the webpage
 
 ## Enduser usage instructions
-There is no special requirements for end users. Simply visit [here](https://rossne99.github.io/Console-Finances/) to view the webpage, then press F12 to open the console.
+There is no special requirements for end users. Simply visit [here](https://rossne99.github.io/Financial-Analysis-App/) to view the webpage, then press F12 to open the console.
 
 ## Features
 - **Shows Total months incdluded in data set**
